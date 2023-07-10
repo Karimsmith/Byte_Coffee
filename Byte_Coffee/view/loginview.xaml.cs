@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Byte_Coffee.Controlador;
+using Byte_Coffee.CustomControls;
+using Byte_Coffee.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,13 @@ namespace Byte_Coffee.view
     /// </summary>
     public partial class loginview : Window
     {
+        private Controladorlogin controladorlogin;
+        
         public loginview()
         {
+
             InitializeComponent();
+            controladorlogin = new Controladorlogin();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -47,12 +54,16 @@ namespace Byte_Coffee.view
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void txtUser_TextChanged_1()
-        {
-
+            string correo = txtUser.Text;
+            string clave = txtclave.Password;
+            if (controladorlogin.Validar(correo, clave))
+            {
+                MessageBox.Show("putaaaaaaaaaaaa");
+            }
+            else
+            {
+                MessageBox.Show("noputaaaaaaaaaa");
+            }
         }
     }
 }

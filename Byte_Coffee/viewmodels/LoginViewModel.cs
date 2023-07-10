@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Byte_Coffee.DB;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -6,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace Byte_Coffee.viewmodels
 {
    public class LoginViewModel:ViewModelBase
     {
+        private Condb condb = new Condb();
         private string _username;
         private SecureString _password;
         private string _errorMassage;
@@ -66,33 +70,7 @@ namespace Byte_Coffee.viewmodels
         public ICommand RecoverPasswordCommand { get; }
         public ICommand ShowPasswordCommand { get; }
         public ICommand RememberPasswordCommand { get; }
+  
 
-
-        public LoginViewModel()
-        {
-            LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand( p => ExecuteRecoverPassCommand ("",""));
-        }
-
-        private bool CanExecuteLoginCommand(object obj)
-        {
-            bool valiData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
-                Password == null || Password.Length < 3)
-                valiData = false;
-            else
-                valiData = true;
-                return valiData;
-        }
-
-        private void ExecuteLoginCommand(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ExecuteRecoverPassCommand(string username, string email)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -8,12 +8,14 @@ namespace Byte_Coffee.Models
 {
     public class UserModel
     {
-        public string id {  get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }  
+        public string Id {  get; set; }
+        public string Nombre { get; set; }
+        public string Apellido1 { get; set; }
+        public string Apellido2 { get; set; }
+        public string Fecha_Registro { get; set; }
+        public string Ultima_Reserva { get; set; }
         public string Email { get; set; }
+        public string Clave { get; set; }
 
     }
 }
