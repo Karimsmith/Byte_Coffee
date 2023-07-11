@@ -1,12 +1,11 @@
-﻿<Window x:Class="Byte_Coffee.view.loginview"
+﻿<Window x:Class="Byte_Coffee.view.sign"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Byte_Coffee.view"
-        xmlns:viewModel="clr-namespace:Byte_Coffee.viewmodels" xmlns:customcontrols="clr-namespace:Byte_Coffee.CustomControls"
         mc:Ignorable="d"
-        Title="loginview" Height="550" Width="800"
+        Title="sign" Height="660" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -14,13 +13,14 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
 
+
     <Border CornerRadius="22">
         <Border.Background>
             <ImageBrush ImageSource="/Imagenes/back.jpg" />
         </Border.Background>
         <Border CornerRadius="20"
             BorderThickness="6"
-            Opacity="0.8" Margin="0,1,0,-1">
+            Opacity="0.8" Margin="0,-10,0,-1" >
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#00334f" Offset="0"/>
@@ -34,7 +34,6 @@
                     <GradientStop Color="#393d42" Offset="0"/>
                 </LinearGradientBrush>
             </Border.Background>
-
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -47,7 +46,7 @@
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="15"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="LOGIN"
+                    <TextBlock Text="Sign in"
                                Foreground="DarkGray"
                                FontSize="10"
                                FontFamily="Montserrat"
@@ -116,12 +115,18 @@
                     </Button>
                 </Grid>
 
-
-
                 <StackPanel Width="250"
                         Grid.Row="2"
                         Orientation="Vertical"
-                        Margin="0,15,0,0">
+                        Margin="0,15,0,0" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.29"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.995"/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
                     <Image Source="/Imagenes/Prueba.png"
                            Width="100" Height="100"/>
 
@@ -132,30 +137,88 @@
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="Correo"
+                    <TextBlock Text="Nombre"
                                Foreground="White"
                                FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
-                               Margin="0,35,0,0"
-                               />
-                    <TextBox x:Name="txtUser"
+                               Margin="0,15,0,0"/>
+
+                    <TextBox x:Name="txtNombre"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
                              Foreground="White"
                              CaretBrush="LightGray"
                              BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"
+                             BorderThickness="2,2,2,2"
                              Height="35"
                              VerticalContentAlignment="Center"
                              Margin="0,10,0,0"
                              Padding="20,0,0,0">
-                        <TextBox.Background>
-                            <ImageBrush ImageSource = "/Imagenes/user-icon.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </TextBox.Background>
+                    </TextBox>
+
+                    <TextBlock Text="Apellido1"
+                               Foreground="White"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="0,15,0,0"/>
+
+                    <TextBox x:Name="txtApellido1"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             Height="35"
+                             VerticalContentAlignment="Center"
+                             Margin="0,10,0,0"
+                             Padding="20,0,0,0">
+                    </TextBox>
+
+                    <TextBlock Text="Apellido2"
+                               Foreground="White"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="0,15,0,0"/>
+
+                    <TextBox x:Name="txtApellido2"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             Height="35"
+                             VerticalContentAlignment="Center"
+                             Margin="0,10,0,0"
+                             Padding="20,0,0,0">
+                    </TextBox>
+
+                    <TextBlock Text="Correo"
+                               Foreground="White"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="0,15,0,0"
+                               />
+                    <TextBox x:Name="txtcorreo"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             Height="35"
+                             VerticalContentAlignment="Center"
+                             Margin="0,10,0,0"
+                             Padding="20,0,0,0">
                     </TextBox>
 
                     <TextBlock Text="Password"
@@ -163,27 +226,26 @@
                                FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
-                               Margin="0,35,0,0"
-                               />
+                               Margin="0,15,0,0"/>
 
                     <PasswordBox x:Name="txtclave"
                               Foreground="White"
                               CaretBrush="LightGray"
                               BorderBrush="DarkGray"
-                              BorderThickness="0,0,0,2"
+                             BorderThickness="2,2,2,2"
                               FontSize="15"
                               FontWeight="Medium"
                               FontFamily="Montserrat"                             
                               Margin="0,15,0,0"/>
 
-                    <Button x:Name="btnLogin"
+                    <Button x:Name="btnSign"
                             BorderThickness="0"
-                            Content="LOG IN"
+                            Content="Sign in"
                             Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
-                            Margin="0,50,0,0" Click="btnLogin_Click">
+                            Margin="0,15,0,0" Click="btnSign_Click">
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -206,28 +268,8 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,35,0,0">
-                        <TextBlock Text="create user!"
-                                   VerticalAlignment="Center"
-                               Foreground="DarkGray"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat" Width="64"/>
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="Button_Click">
-                            <TextBlock Text="Sign in"
-                               Foreground="White"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"
-                               Cursor="Hand"/>
-                        </Button>
-                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Border>
     </Border>
-
 </Window>

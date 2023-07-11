@@ -126,6 +126,9 @@
     <Compile Include="view\loginview.xaml.cs">
       <DependentUpon>loginview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sign.xaml.cs">
+      <DependentUpon>sign.xaml</DependentUpon>
+    </Compile>
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +146,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\loginview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sign.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

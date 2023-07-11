@@ -65,5 +65,12 @@ namespace Byte_Coffee.view
                 MessageBox.Show("noputaaaaaaaaaa");
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sign sign = new sign();
+            sign.Show();
+            this.Close();
+        }
     }
 }
