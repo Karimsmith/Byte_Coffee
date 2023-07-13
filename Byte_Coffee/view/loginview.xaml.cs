@@ -58,11 +58,13 @@ namespace Byte_Coffee.view
             string clave = txtclave.Password;
             if (controladorlogin.Validar(correo, clave))
             {
-                MessageBox.Show("putaaaaaaaaaaaa");
+                Inicio inicio = new Inicio();
+                inicio.Show();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("noputaaaaaaaaaa");
+                MessageBox.Show("Usuario no encontrado");
             }
         }
 

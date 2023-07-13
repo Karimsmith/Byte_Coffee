@@ -70,6 +70,10 @@ namespace Byte_Coffee.view
 
             controladorcliente.AgregarCliente(nuevoCliente);
 
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            this.Close();
+
         }
         private bool ValidacionCampos()
         {

@@ -27,19 +27,19 @@ namespace Byte_Coffee.Modelo
             if (ValidacionCampos(cliente))
             {
                 NpgsqlConnection conexion = condb.EstablecerConexion();
-                string sentencia = "INSERT INTO cliente (nombre, apellido1, apellido2,  Fecha_Registro, Email, clave) VALUES (@nombre, @apellido1,@apellido2,@correo_trabajador,@fecha_contratacion,@horario_trabajador,@puesto_trabajador,@salario_trabajador)";
+                string sentencia = "INSERT INTO clientes (nombre, apellido1, apellido2,fecha_registro, email, clave) VALUES (@nombre, @apellido1,@apellido2,@fecha_registro,@email,@clave)";
                 NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@nombre", cliente.Nombre);
                 comando.Parameters.AddWithValue("@apellido1", cliente.Apellido1);
                 comando.Parameters.AddWithValue("@apellido2", cliente.Apellido2);
-                comando.Parameters.AddWithValue("@Fecha_Registro", cliente.Fecha_Registro);
-                comando.Parameters.AddWithValue("@correo", cliente.Email);
-                comando.Parameters.AddWithValue("@Clave", cliente.Clave);
+                comando.Parameters.AddWithValue("@fecha_Registro", cliente.Fecha_Registro);
+                comando.Parameters.AddWithValue("@email", cliente.Email);
+                comando.Parameters.AddWithValue("@clave", cliente.Clave);
 
                 NpgsqlDataReader lector = comando.ExecuteReader();
                 while (lector.Read())
                 {
-                    UserModel clientes = new UserModel()
+                    _ = new UserModel()
                     {
                         Nombre = lector.GetString(0),
                         Apellido1 = lector.GetString(1),
@@ -54,29 +54,35 @@ namespace Byte_Coffee.Modelo
         public bool ValidacionCampos(UserModel cliente)
         {
             NpgsqlConnection conexion = condb.EstablecerConexion();
-            string sentencia = $"SELECT Email FROM clientes  WHERE Emil=@correo LIMIT 1";
+            string sentencia = "SELECT Email FROM clientes  WHERE email=@email LIMIT 1";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
-            comando.Parameters.AddWithValue("@Emil", cliente.Email);
+            comando.Parameters.AddWithValue("@email", cliente.Email);
             NpgsqlDataReader lector = comando.ExecuteReader();
-            if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido1) || string.IsNullOrEmpty(cliente.Fecha_Registro) ||
+            if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido1) || string.IsNullOrEmpty(cliente.Apellido2) ||
                 string.IsNullOrEmpty(cliente.Email) || string.IsNullOrEmpty(cliente.Clave))
             {
                 MessageBox.Show("Todos los campos deben ser completados.");
+                condb.CerrarConexion();
                 return false;
             }
             else if (!Regex.IsMatch(cliente.Email, emailRegex))
             {
                 MessageBox.Show("El correo tiene un formato incorrecto");
+                condb.CerrarConexion();
+
                 return false;
             }
             else if (lector.Read())
             {
                 MessageBox.Show("El correo ya existe");
+                condb.CerrarConexion();
+
                 return false;
             }
             else
             {
-                MessageBox.Show("¡Trabajador Ingresado Correctamente!");
+                MessageBox.Show("Â¡Trabajador Ingresado Correctamente!");
+                condb.CerrarConexion();
                 return true;
             }
         }
