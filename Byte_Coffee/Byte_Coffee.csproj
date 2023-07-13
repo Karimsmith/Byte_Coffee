@@ -113,11 +113,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controlador\Controladorlogin.cs" />
+    <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB\Condb.cs" />
     <Compile Include="Modelo\Modelologin.cs" />
+    <Compile Include="Modelo\ModeloRegistro.cs" />
     <Compile Include="Models\IUserRepositor.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="viewmodels\LoginViewModel.cs" />

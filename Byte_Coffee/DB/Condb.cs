@@ -24,7 +24,7 @@ namespace Byte_Coffee.DB
             try
             {
                 conexion.ConnectionString = urlConexion;
-                conexion.Open();
+               conexion.Open();
 
             }
 
