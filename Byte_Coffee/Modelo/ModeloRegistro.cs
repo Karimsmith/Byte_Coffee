@@ -27,15 +27,14 @@ namespace Byte_Coffee.Modelo
             if (ValidacionCampos(cliente))
             {
                 NpgsqlConnection conexion = condb.EstablecerConexion();
-                string sentencia = "INSERT INTO clientes (nombre, apellido1, apellido2,fecha_registro, email, clave) VALUES (@nombre, @apellido1,@apellido2,@fecha_registro,@email,@clave)";
-                NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
+                NpgsqlCommand comando = new NpgsqlCommand("call stored_procedures.crear_cliente(@nombre,@apellido1,@apellido2,@fecha_nacimiento,@fecha_Registro,@email,@clave)", conexion);
                 comando.Parameters.AddWithValue("@nombre", cliente.Nombre);
                 comando.Parameters.AddWithValue("@apellido1", cliente.Apellido1);
                 comando.Parameters.AddWithValue("@apellido2", cliente.Apellido2);
+                comando.Parameters.AddWithValue("@fecha_nacimiento", cliente.Fecha_Nacimiento);
                 comando.Parameters.AddWithValue("@fecha_Registro", cliente.Fecha_Registro);
                 comando.Parameters.AddWithValue("@email", cliente.Email);
                 comando.Parameters.AddWithValue("@clave", cliente.Clave);
-
                 NpgsqlDataReader lector = comando.ExecuteReader();
                 while (lector.Read())
                 {
@@ -44,9 +43,10 @@ namespace Byte_Coffee.Modelo
                         Nombre = lector.GetString(0),
                         Apellido1 = lector.GetString(1),
                         Apellido2 = lector.GetString(2),
-                        Fecha_Registro = lector.GetString(3),
-                        Email = lector.GetString(4),
-                        Clave = lector.GetString(5),
+                        Fecha_Nacimiento = lector.GetString(3),
+                        Fecha_Registro = lector.GetString(4),
+                        Email = lector.GetString(5),
+                        Clave = lector.GetString(6),
                     };
                 }
             }
@@ -58,7 +58,7 @@ namespace Byte_Coffee.Modelo
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
             comando.Parameters.AddWithValue("@email", cliente.Email);
             NpgsqlDataReader lector = comando.ExecuteReader();
-            if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido1) || string.IsNullOrEmpty(cliente.Apellido2) ||
+            if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido1) || string.IsNullOrEmpty(cliente.Apellido2) || 
                 string.IsNullOrEmpty(cliente.Email) || string.IsNullOrEmpty(cliente.Clave))
             {
                 MessageBox.Show("Todos los campos deben ser completados.");
@@ -69,7 +69,6 @@ namespace Byte_Coffee.Modelo
             {
                 MessageBox.Show("El correo tiene un formato incorrecto");
                 condb.CerrarConexion();
-
                 return false;
             }
             else if (lector.Read())
@@ -81,7 +80,7 @@ namespace Byte_Coffee.Modelo
             }
             else
             {
-                MessageBox.Show("Â¡Trabajador Ingresado Correctamente!");
+                MessageBox.Show("¡Usuario creado!");
                 condb.CerrarConexion();
                 return true;
             }

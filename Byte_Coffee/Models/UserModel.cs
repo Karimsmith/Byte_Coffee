@@ -12,6 +12,7 @@ namespace Byte_Coffee.Models
         public string Nombre { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
+        public string Fecha_Nacimiento { get; set; }
         public string Fecha_Registro { get; set; }
         public string Ultima_Reserva { get; set; }
         public string Email { get; set; }

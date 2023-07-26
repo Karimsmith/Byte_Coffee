@@ -15,34 +15,30 @@ using System.Windows.Shapes;
 namespace Byte_Coffee.view
 {
     /// <summary>
-    /// Interaction logic for Inicio.xaml
+    /// Interaction logic for AgregarReseña.xaml
     /// </summary>
-    public partial class Inicio : Window
+    public partial class AgregarReseña : Window
     {
-        public Inicio()
+        public AgregarReseña()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void txtCalificacion_TextChanged(object sender, TextChangedEventArgs e)
         {
-            menu menu = new menu();
-            menu.Show();
-            this.Close();
+
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnAgregar_ClicK(object sender, RoutedEventArgs e)
         {
-            Resevarcion resevarcion = new Resevarcion();
-            resevarcion.Show();
-            this.Close();
+
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btnAgregar_ClicKbtnAgregar_Click(object sender, RoutedEventArgs e)
         {
             Reseña reseña = new Reseña();
             reseña.Show();
-            this.Close();  
+            this.Close();
         }
     }
 }

@@ -47,15 +47,16 @@ namespace Byte_Coffee.view
 
         private void btnSign_Click(object sender, RoutedEventArgs e)
         {
-            int dia, mes, anio;
+            int dia, mes, year;
             string nombre = txtNombre.Text;
             string apellido1 = txtApellido1.Text;
             string apellido2 = txtApellido2.Text;
+            string fnacimiento = fecha_nacimiento.ToString();
             string correo = txtcorreo.Text;
             string clave = txtclave.Password;
             dia = fechaActual.Day;
             mes = fechaActual.Month;
-            anio = fechaActual.Year;
+            year = fechaActual.Year;
             ValidacionCampos();
             UserModel nuevoCliente = new UserModel()
             {
@@ -63,14 +64,15 @@ namespace Byte_Coffee.view
                 Nombre = nombre,
                 Apellido1 = apellido1,
                 Apellido2 = apellido2,
+                Fecha_Nacimiento = fnacimiento,
+                Fecha_Registro = $"{dia}/{mes}/{year}",
                 Email = correo,
-                Fecha_Registro = $"{dia}/{mes}/{anio}",
                 Clave = clave,
             };
 
             controladorcliente.AgregarCliente(nuevoCliente);
 
-            Inicio inicio = new Inicio();
+            loginview inicio = new loginview();
             inicio.Show();
             this.Close();
 

@@ -5,38 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Byte_Coffee.view"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
         Title="Inicio" Height="730" Width="1400">
     <Grid>
-        <Grid HorizontalAlignment="Center">
-            <Grid Margin="0,10,302,-10">
-                <TextBlock Text="BYTECH COOFEE" Margin="112,86,688,573" FontFamily="Bahnschrift Condensed" FontSize="48"/>
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="619" Margin="0,202,0,0" Height="112" Panel.ZIndex="0">
-                    <TextBlock Text="ByteTech Coffee es el lugar favorito para los amantes del café. Su" FontSize="20" TextAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
-                    <TextBlock Text="visión innovadora y su dedicación por la excelencia crean una" FontSize="20" TextAlignment="Center"/>
-                    <TextBlock Text="experiencia única.  Es donde el café y la tecnología se unen para crear" FontSize="20" TextAlignment="Center"/>
-                    <TextBlock Text=" momentos especiales." FontSize="20" TextAlignment="Center"/>
-                </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="394" Margin="0,357,0,0" Height="316" Panel.ZIndex="0">
-                    <TextBlock Text="Contacto" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT" />
-                    <TextBlock Text="(506) 2236 7510" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
-                    <TextBlock Text="" FontSize="16" Margin="0,10,0,0" TextAlignment="Center" />
-                    <TextBlock Text="Horario" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT"/>
-                    <TextBlock Text="de Lunes a Sábado" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
-                    <TextBlock Text="8:00 am - 5:00 pm" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
-                    <TextBlock Text="" FontSize="16" Margin="0,10,0,0" TextAlignment="Center" />
-                    <TextBlock Text="Ubicación" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT"/>
-                    <TextBlock Text="San Francisco de Heredia, Costa Rica" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
-                </StackPanel>
-            </Grid>
-
-
-            <Grid Margin="1066,0,-28,0" Background="#FFC8938A">
-                <StackPanel  Grid.Column="1" HorizontalAlignment="Center" Margin="40"></StackPanel>
-                <Button Background="#FFC8938A" BorderBrush="White" BorderThickness="2" Foreground="White" Content="Menú" Margin="68,127,68,515" Click="Button_Click" FontSize="18" />
-                <Button Background="#FFC8938A" BorderBrush="White" BorderThickness="2" Foreground="White" Content="Reservación" Margin="68,321,68,321" Click="Button_Click_2" FontSize="18" />
-                <Button Background="#FFC8938A" BorderBrush="White" BorderThickness="2" Foreground="White" Content="Reseñas" Margin="68,509,68,133" Click="Button_Click_1" FontSize="18" />
-            </Grid>
+        <Grid Grid.Column="1"  Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="255"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="244"/>
+            </Grid.RowDefinitions>
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Width="220"
+                    Height="90"
+                    Content="Menú" 
+                    Click="Button_Click" 
+                    FontSize="23" 
+                    Grid.Row="0" />
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White" 
+                    Content="Reservación" 
+                    Width="220"
+                    Height="90"
+                    HorizontalAlignment="Center" 
+                    Click="Button_Click_1" 
+                    FontSize="23" 
+                    Grid.Row="1" />
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White" 
+                    Content="Reseñas" 
+                    Width="220"
+                    Height="90"
+                    HorizontalAlignment="Center" 
+                    Click="Button_Click_2" 
+                    FontSize="23" 
+                    Grid.Row="2" />
         </Grid>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="BYTECH COOFEE" 
+                       Margin="112,86,628,553" 
+                       FontFamily="Bahnschrift Condensed" 
+                       FontSize="48"/>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="619" Margin="0,202,0,0" Height="112" Panel.ZIndex="0">
+                <TextBlock Text="ByteTech Coffee es el lugar favorito para los amantes del café. Su" FontSize="20" TextAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+                <TextBlock Text="visión innovadora y su dedicación por la excelencia crean una" FontSize="20" TextAlignment="Center"/>
+                <TextBlock Text="experiencia única.  Es donde el café y la tecnología se unen para crear" FontSize="20" TextAlignment="Center"/>
+                <TextBlock Text=" momentos especiales." FontSize="20" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="394" Margin="0,357,0,0" Height="316" Panel.ZIndex="0">
+                <TextBlock Text="Contacto" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT" />
+                <TextBlock Text="(506) 2236 7510" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
+                <TextBlock Text="" FontSize="16" Margin="0,10,0,0" TextAlignment="Center" />
+                <TextBlock Text="Horario" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT"/>
+                <TextBlock Text="de Lunes a Sábado" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
+                <TextBlock Text="8:00 am - 5:00 pm" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
+                <TextBlock Text="" FontSize="16" Margin="0,10,0,0" TextAlignment="Center" />
+                <TextBlock Text="Ubicación" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" Foreground="#FF0097B2" FontFamily="Calisto MT"/>
+                <TextBlock Text="San Francisco de Heredia, Costa Rica" FontSize="18" Margin="0,10,0,0" TextAlignment="Center" FontFamily="Calisto MT"/>
+            </StackPanel>
+        </Grid>
+
     </Grid>
+
 </Window>

@@ -1,0 +1,77 @@
+﻿<Window x:Class="Byte_Coffee.view.menu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Byte_Coffee.view"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="menu" Height="450" Width="800">
+    <ListBox x:Name="listaPlatillos"
+             Grid.Row="1"
+             Background="White"
+             Foreground="Black"
+             Margin="10"
+             Width='auto'>
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <materialDesign:Card Width="250"
+                                     Background='#b0dce4'>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image x:Name='imgPlatillo'
+                               Source="{Binding Imagen}"
+                               Stretch="UniformToFill" />
+                        <Button Grid.Row="0"
+                                Margin="0,0,16,-20"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
+                            <materialDesign:PackIcon Kind="Food" />
+                        </Button>
+                        <StackPanel Grid.Row="1"
+                                    Margin="8,24,8,0">
+                            <TextBlock FontWeight="Bold"
+                                       Text='{Binding Nombre}'
+                                       FontFamily='Arial'
+                                       FontSize='20'
+                                       Foreground='#000' />
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="{Binding Descripcion}"
+                                       TextWrapping="Wrap" />
+                            <TextBlock Text='{Binding Precio}' />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2"
+                                    Margin="8"
+                                    HorizontalAlignment="Right"
+                                    Orientation="Horizontal">
+                            <Button Width="30"
+                                    Padding="2,0,2,0"
+                                    materialDesign:RippleAssist.IsCentered="True"
+                                    Style="{StaticResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="ShareVariant" />
+                            </Button>
+                            <Button Width="30"
+                                    Padding="2,0,2,0"
+                                    materialDesign:RippleAssist.IsCentered="True"
+                                    Style="{StaticResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Heart" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+
+</Window>

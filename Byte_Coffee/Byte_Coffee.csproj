@@ -114,30 +114,36 @@
     </ApplicationDefinition>
     <Compile Include="Controlador\Controladorlogin.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
-    <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
-      <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controlador\MenuControlador.cs" />
     <Compile Include="DB\Condb.cs" />
     <Compile Include="Modelo\Modelologin.cs" />
+    <Compile Include="Modelo\modeloMenu.cs" />
     <Compile Include="Modelo\ModeloRegistro.cs" />
     <Compile Include="Models\IUserRepositor.cs" />
+    <Compile Include="Models\Platillo.cs" />
+    <Compile Include="Models\Reseña.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="viewmodels\LoginViewModel.cs" />
-    <Compile Include="viewmodels\ViewModelBase.cs" />
-    <Compile Include="viewmodels\ViewModelCommand.cs" />
+    <Compile Include="view\AgregarReseña.xaml.cs">
+      <DependentUpon>AgregarReseña.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Inicio.xaml.cs">
       <DependentUpon>Inicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\loginview.xaml.cs">
       <DependentUpon>loginview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\menu.xaml.cs">
+      <DependentUpon>menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Reservacion.xaml.cs">
+      <DependentUpon>Reservacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\Reseña.xaml.cs">
+      <DependentUpon>Reseña.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sign.xaml.cs">
       <DependentUpon>sign.xaml</DependentUpon>
     </Compile>
-    <Page Include="CustomControls\BindablePasswordBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,11 +156,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="view\AgregarReseña.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Inicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\loginview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Reservacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\Reseña.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

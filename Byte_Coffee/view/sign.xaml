@@ -1,14 +1,15 @@
 ﻿<Window x:Class="Byte_Coffee.view.sign"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Byte_Coffee.view"
         mc:Ignorable="d"
-        Title="sign" Height="660" Width="800"
+        Title="sign" Height="760" Width="900"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
@@ -20,7 +21,7 @@
         </Border.Background>
         <Border CornerRadius="20"
             BorderThickness="6"
-            Opacity="0.8" Margin="0,-10,0,-1" >
+            Opacity="0.8" Margin="0,1,0,-5" >
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#00334f" Offset="0"/>
@@ -115,10 +116,10 @@
                     </Button>
                 </Grid>
 
-                <StackPanel Width="250"
-                        Grid.Row="2"
+                <StackPanel
+                        Grid.Row="1"
                         Orientation="Vertical"
-                        Margin="0,15,0,0" RenderTransformOrigin="0.5,0.5">
+                        Margin="260,3,260,2" RenderTransformOrigin="0.5,0.5">
                     <StackPanel.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -127,8 +128,8 @@
                             <TranslateTransform X="0.995"/>
                         </TransformGroup>
                     </StackPanel.RenderTransform>
-                    <Image Source="/Imagenes/Prueba.png"
-                           Width="100" Height="100"/>
+                    <Image Source="https://imgur.com/IoDkXSS.jpg"
+                           Width="100" Height="100" Margin="0,10,0,10"/>
 
                     <TextBlock Text="Byte-Coffee"
                                Foreground="White"
@@ -200,12 +201,28 @@
                              Padding="20,0,0,0">
                     </TextBox>
 
-                    <TextBlock Text="Correo"
+                    <TextBlock Text="Fecha de Nacimiento"       
                                Foreground="White"
                                FontSize="15"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                Margin="0,15,0,0"
+                               />
+                    <DatePicker x:Name="fecha_nacimiento"
+                            Width="365"
+                            materialDesign:HintAssist.Hint="Seleccione la fecha"
+                            Style="{StaticResource MaterialDesignFilledDatePicker}" 
+                            Margin="0,10,0,2"
+                            BorderBrush="Black"
+                            BorderThickness="2,2,2,2"
+                                  Background="White"/>
+
+                    <TextBlock Text="Correo"
+                               Foreground="White"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="0,15,0,0" Height="20"
                                />
                     <TextBox x:Name="txtcorreo"
                              FontSize="13"
@@ -218,8 +235,7 @@
                              Height="35"
                              VerticalContentAlignment="Center"
                              Margin="0,10,0,0"
-                             Padding="20,0,0,0">
-                    </TextBox>
+                             Padding="20,0,0,0"></TextBox>
 
                     <TextBlock Text="Password"
                                Foreground="White"

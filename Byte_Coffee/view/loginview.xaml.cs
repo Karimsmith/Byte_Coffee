@@ -1,6 +1,4 @@
 ﻿using Byte_Coffee.Controlador;
-using Byte_Coffee.CustomControls;
-using Byte_Coffee.viewmodels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

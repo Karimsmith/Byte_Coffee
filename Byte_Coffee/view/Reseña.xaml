@@ -1,0 +1,145 @@
+﻿<Window x:Class="Byte_Coffee.view.Reseña"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Byte_Coffee.view"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="Reseña" Height="740" Width="1400" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="1"  Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="255"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="244"/>
+            </Grid.RowDefinitions>
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Width="220"
+                    Height="90"
+                    Content="Menú" 
+                    Click="Button_Click_menu" 
+                    FontSize="23" 
+                    Grid.Row="0" />
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White" 
+                    Content="Reservación" 
+                    Width="220"
+                    Height="90"
+                    HorizontalAlignment="Center" 
+                    Click="Button_Click_Reservacion" 
+                    FontSize="23" 
+                    Grid.Row="1" />
+            <Button Background="LightBlue" 
+                    BorderBrush="White" 
+                    BorderThickness="3" 
+                    Foreground="White" 
+                    Content="Inicio" 
+                    Width="220"
+                    Height="90"
+                    HorizontalAlignment="Center" 
+                    Click="Button_Click_inicio" 
+                    FontSize="23" 
+                    Grid.Row="2" />
+        </Grid>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="RESEÑAS" 
+                       Grid.Row="0"
+                       Margin="50,50,782,16"
+                       FontFamily="Bahnschrift Condensed" 
+                       FontSize="48"/>
+
+            <Grid HorizontalAlignment="Center"  
+                  Background="LightBlue" 
+                  Opacity="0.5" 
+                  Grid.Row="1" 
+                  Width="900"/>
+            <Grid Grid.Row="1" 
+                  HorizontalAlignment="Center" 
+                  Width="900">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="170"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Nombre" 
+                   Margin="10" 
+                   FontSize="16" 
+                   HorizontalAlignment="Center" />
+                <Label Content="Comentario" 
+                   Margin="10" 
+                   FontSize="16" 
+                   Grid.Column="1" 
+                   HorizontalAlignment="Center"  />
+                <Label Content="Calificacion" 
+                   Margin="0, 10" 
+                   FontSize="16" 
+                   Grid.Column="2" />
+            </Grid>
+            <ListBox x:Name="listaReseñas" 
+                     Grid.Row="1" 
+                     Width="860" 
+                     Height="400" 
+                     Margin="85,51,85,23"
+                     Background="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Nombre}"
+                                       Grid.Column="0"/>
+                            <TextBlock Text="{Binding Comentario}"
+                                       Grid.Column="1"/>
+                            <TextBlock Text="{Binding Calificacion}"
+                                       Grid.Column="2"/>
+                            <Button Content="x"
+                                    Click="Btneliminar_Click"
+                                    Grid.Column="3"
+                                    CommandParameter='{Binding Id}'/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="Generar Reseña" 
+                    Click="btnGenerareseña_ClicK"
+                    Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Margin="0,28,42,42"
+                    Width="150"
+                    Height="50"
+                    Background="White" 
+                    BorderBrush="LightBlue" 
+                    BorderThickness="2" 
+                    Foreground="Black" 
+                    FontSize="16" />
+
+        </Grid>
+    </Grid>
+</Window>
