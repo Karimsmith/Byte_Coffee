@@ -113,19 +113,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controlador\Controladorlogin.cs" />
+    <Compile Include="Controlador\ControladorPlatillo.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
+    <Compile Include="Controlador\ControladorValoraciones.cs" />
+    <Compile Include="Controlador\Controlador_reserva.cs" />
     <Compile Include="Controlador\MenuControlador.cs" />
     <Compile Include="DB\Condb.cs" />
     <Compile Include="Modelo\Modelologin.cs" />
     <Compile Include="Modelo\modeloMenu.cs" />
+    <Compile Include="Modelo\ModeloPlatillo.cs" />
     <Compile Include="Modelo\ModeloRegistro.cs" />
+    <Compile Include="Modelo\modeloreserva.cs" />
+    <Compile Include="Modelo\ModeloValoracion.cs" />
     <Compile Include="Models\IUserRepositor.cs" />
     <Compile Include="Models\Platillo.cs" />
+    <Compile Include="Models\Reservas.cs" />
     <Compile Include="Models\Reseña.cs" />
+    <Compile Include="Models\Sesion.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="view\AgregarReseña.xaml.cs">
-      <DependentUpon>AgregarReseña.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Valoraciones.cs" />
     <Compile Include="view\Inicio.xaml.cs">
       <DependentUpon>Inicio.xaml</DependentUpon>
     </Compile>
@@ -144,6 +150,12 @@
     <Compile Include="view\sign.xaml.cs">
       <DependentUpon>sign.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\V_ListaPedido.xaml.cs">
+      <DependentUpon>V_ListaPedido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\V_ValorarPedido.xaml.cs">
+      <DependentUpon>V_ValorarPedido.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,10 +168,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="view\AgregarReseña.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="view\Inicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +189,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\V_ListaPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\V_ValorarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,71 +7,303 @@
         xmlns:local="clr-namespace:Byte_Coffee.view"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
-        Title="menu" Height="450" Width="800">
-    <ListBox x:Name="listaPlatillos"
-             Grid.Row="1"
-             Background="White"
-             Foreground="Black"
-             Margin="10"
-             Width='auto'>
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <WrapPanel Orientation="Horizontal" />
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <materialDesign:Card Width="250"
-                                     Background='#b0dce4'>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="140" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Image x:Name='imgPlatillo'
-                               Source="{Binding Imagen}"
-                               Stretch="UniformToFill" />
-                        <Button Grid.Row="0"
-                                Margin="0,0,16,-20"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom"
-                                Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
-                            <materialDesign:PackIcon Kind="Food" />
-                        </Button>
-                        <StackPanel Grid.Row="1"
-                                    Margin="8,24,8,0">
-                            <TextBlock FontWeight="Bold"
-                                       Text='{Binding Nombre}'
-                                       FontFamily='Arial'
-                                       FontSize='20'
-                                       Foreground='#000' />
-                            <TextBlock VerticalAlignment="Center"
-                                       Text="{Binding Descripcion}"
-                                       TextWrapping="Wrap" />
-                            <TextBlock Text='{Binding Precio}' />
-                        </StackPanel>
-                        <StackPanel Grid.Row="2"
-                                    Margin="8"
+        Title="Menu"
+        MinHeight='768'
+        MinWidth='1366'
+        MaxHeight="1080"
+        MaxWidth="1930"
+        Background='#B0DCE4'
+        WindowState='Maximized'>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height='60' />
+            <RowDefinition Height='30' />
+            <RowDefinition Height="*" />
+            <RowDefinition Height='30' />
+            <RowDefinition Height="*" />
+            <RowDefinition Height='30' />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name='Hora'
+                   Text='10:00:00'
+                   Grid.Row='0'
+                   FontSize='15'
+                   FontFamily='Arial'
+                   Foreground='#fff'
+                   VerticalAlignment='Center'
+                   Margin='13,0,0,0' />
+        <TextBlock Text='Byte Coffee'
+                   FontFamily='Arial'
+                   FontSize='25'
+                   Grid.Row='0'
+                   HorizontalAlignment='Center'
+                   VerticalAlignment='Center'
+                   Foreground='#ffff' />
+        <TextBlock x:Name='NombreUsuario'
+                   Text='Ángel Muñoz García'
+                   Foreground='#fff'
+                   FontSize='18'
+                   TextWrapping='Wrap'
+                   Grid.Row='0'
+                   VerticalAlignment='Center'
+                   HorizontalAlignment='Right' />
+        <Line X1='0'
+              x:Name='Linea'
+              StrokeThickness='2'
+              Stroke='#1A237E'
+              Grid.Row='0'
+              VerticalAlignment='Bottom' />
+        <TextBlock Text='Los 8 mejor valorados'
+                   Grid.Row='1'
+                   FontFamily='Arial'
+                   FontSize='20'
+                   Margin='13,0,0,0'
+                   Foreground='#fff' />
+        <ListBox x:Name="listaOchoMejorValorados"
+                 Grid.Row="4"
+                 Background="White"
+                 Foreground="Black"
+                 Margin="10"
+                 Width='auto'>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card Width="217"
+                                         Height='270'
+                                         Background='#333333'>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="140" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image x:Name='imgPlatillo'
+                                   Source="{Binding Imagen}"
+                                   Stretch="UniformToFill" />
+                            <Button Grid.Row="0"
+                                    Margin="0,0,16,-20"
                                     HorizontalAlignment="Right"
-                                    Orientation="Horizontal">
-                            <Button Width="30"
-                                    Padding="2,0,2,0"
-                                    materialDesign:RippleAssist.IsCentered="True"
-                                    Style="{StaticResource MaterialDesignToolButton}">
-                                <materialDesign:PackIcon Kind="ShareVariant" />
-                            </Button>
-                            <Button Width="30"
-                                    Padding="2,0,2,0"
-                                    materialDesign:RippleAssist.IsCentered="True"
-                                    Style="{StaticResource MaterialDesignToolButton}">
-                                <materialDesign:PackIcon Kind="Heart" />
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:Card>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+                                    VerticalAlignment="Bottom"
+                                    CommandParameter='{Binding Id}'
+                                    Click='BtnPedido_Click'
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
 
+                                <materialDesign:PackIcon Kind="AddShoppingCart" />
+                            </Button>
+                            <StackPanel Grid.Row="1"
+                                        Margin="8,24,8,0">
+                                <TextBlock FontWeight="Bold"
+                                           FontFamily='Arial'
+                                           FontSize='20'
+                                           Text='{Binding Nombre}'
+                                           Foreground='#fff'
+                                           HorizontalAlignment='Center' />
+                                <materialDesign:RatingBar IsReadOnly='True'
+                                                          Value="{Binding Valoracion}" />
+                                <TextBlock VerticalAlignment="Center"
+                                           Text="{Binding Descripcion}"
+                                           TextWrapping="Wrap"
+                                           Foreground='#ffff'
+                                           FontSize='15' />
+                                <TextBlock>
+                                    <Run Text="₡"
+                                         Foreground='#fff' />
+                                    <Run Text='{Binding Precio}'
+                                         Foreground='#fff' />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2"
+                                        Margin="8"
+                                        HorizontalAlignment="Right"
+                                        Orientation="Horizontal">
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text='Los 8 más pedidos'
+                   Grid.Row='3'
+                   FontFamily='Arial'
+                   FontSize='20'
+                   Margin='13,0,0,0'
+                   Foreground='#fff' />
+        <ListBox x:Name="listaOchoMasPedidos"
+                 Grid.Row="2"
+                 Background="White"
+                 Foreground="Black"
+                 Margin="10"
+                 Width='auto'>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card Width="217"
+                                         Height='270'
+                                         Background='#333333'>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="140" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image x:Name='imgPlatillo'
+                                   Source="{Binding Imagen}"
+                                   Stretch="UniformToFill" />
+                            <Button Grid.Row="0"
+                                    Margin="0,0,16,-20"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    CommandParameter='{Binding Id}'
+                                    Click='BtnPedido_Click'
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
+
+                                <materialDesign:PackIcon Kind="AddShoppingCart" />
+                            </Button>
+                            <StackPanel Grid.Row="1"
+                                        Margin="8,24,8,0">
+                                <TextBlock FontWeight="Bold"
+                                           FontFamily='Arial'
+                                           FontSize='20'
+                                           Text='{Binding Nombre}'
+                                           Foreground='#fff'
+                                           HorizontalAlignment='Center' />
+                                <materialDesign:RatingBar IsReadOnly='True'
+                                                          Value="{Binding Valoracion}" />
+                                <TextBlock VerticalAlignment="Center"
+                                           Text="{Binding Descripcion}"
+                                           TextWrapping="Wrap"
+                                           Foreground='#ffff'
+                                           FontSize='15' />
+                                <TextBlock>
+                                    <Run Text="₡"
+                                         Foreground='#fff' />
+                                    <Run Text='{Binding Precio}'
+                                         Foreground='#fff' />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2"
+                                        Margin="8"
+                                        HorizontalAlignment="Right"
+                                        Orientation="Horizontal">
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text='Todo nuestro menú'
+                   Grid.Row='5'
+                   FontFamily='Arial'
+                   FontSize='20'
+                   Margin='13,0,0,0'
+                   Foreground='#fff' />
+        <ComboBox Grid.Row='5'
+                  Margin='0,0,30,0'
+                  HorizontalAlignment='Right'
+                  Width='160' />
+        <ListBox x:Name="listaMenuCompleto"
+                 Grid.Row="6"
+                 Background="White"
+                 Foreground="Black"
+                 Margin="10"
+                 Width='auto'>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card Width="217"
+                                         Height='270'
+                                         Background='#333333'>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="140" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image x:Name='imgPlatillo'
+                                   Source="{Binding Imagen}"
+                                   Stretch="UniformToFill" />
+                            <Button Grid.Row="0"
+                                    Margin="0,0,16,-20"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    CommandParameter='{Binding Id}'
+                                    Click='BtnPedido_Click'
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
+
+                                <materialDesign:PackIcon Kind="AddShoppingCart" />
+                            </Button>
+                            <StackPanel Grid.Row="1"
+                                        Margin="8,24,8,0">
+                                <TextBlock FontWeight="Bold"
+                                           FontFamily='Arial'
+                                           FontSize='20'
+                                           Text='{Binding Nombre}'
+                                           Foreground='#fff'
+                                           HorizontalAlignment='Center' />
+                                <materialDesign:RatingBar IsReadOnly='True'
+                                                          Value="{Binding Valoracion}" />
+                                <TextBlock VerticalAlignment="Center"
+                                           Text="{Binding Descripcion}"
+                                           TextWrapping="Wrap"
+                                           Foreground='#ffff'
+                                           FontSize='15' />
+                                <TextBlock>
+                                    <Run Text="₡"
+                                         Foreground='#fff' />
+                                    <Run Text='{Binding Precio}'
+                                         Foreground='#fff' />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2"
+                                        Margin="8"
+                                        HorizontalAlignment="Right"
+                                        Orientation="Horizontal">
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button materialDesign:ShadowAssist.ShadowAnimationDuration="5:5:5.5"
+                VerticalAlignment='Bottom'
+                Grid.Row='7'
+                x:Name='BtnVerPedido'
+                Click='BtnVerPedido_Click'
+                HorizontalAlignment='Left'
+                Width='229'
+                Content='Ver pedido'
+                Background='#1A237E'
+                Visibility='Hidden'
+                Margin='578,0,0,15'
+                BorderBrush='Transparent'
+                Style="{StaticResource MaterialDesignRaisedDarkButton}">
+        </Button>
+        <Button materialDesign:ShadowAssist.ShadowAnimationDuration="5:5:5.5"
+                VerticalAlignment='Bottom'
+                Grid.Row='7'
+                HorizontalAlignment='Left'
+                Width='229'
+                Content='Valorar pedido'
+                Background='#FF7E00'
+                Margin='10,0,0,10'
+                BorderBrush='Transparent'
+                x:Name='BtnValorarPedido'
+                Click='BtnValorarPedido_Click'
+                Visibility='Hidden'
+                Style="{StaticResource MaterialDesignRaisedDarkButton}">
+        </Button>
+    </Grid>
 </Window>

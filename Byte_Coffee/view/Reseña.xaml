@@ -62,7 +62,7 @@
                 <RowDefinition Height="120"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="RESEÑAS" 
+            <TextBlock Text="Valoraciones" 
                        Grid.Row="0"
                        Margin="50,50,782,16"
                        FontFamily="Bahnschrift Condensed" 
@@ -86,7 +86,7 @@
                    Margin="10" 
                    FontSize="16" 
                    HorizontalAlignment="Center" />
-                <Label Content="Comentario" 
+                <Label Content="Platillo" 
                    Margin="10" 
                    FontSize="16" 
                    Grid.Column="1" 
@@ -106,39 +106,26 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
 
-                            <TextBlock Text="{Binding Nombre}"
-                                       Grid.Column="0"/>
-                            <TextBlock Text="{Binding Comentario}"
-                                       Grid.Column="1"/>
-                            <TextBlock Text="{Binding Calificacion}"
-                                       Grid.Column="2"/>
-                            <Button Content="x"
-                                    Click="Btneliminar_Click"
-                                    Grid.Column="3"
-                                    CommandParameter='{Binding Id}'/>
+                            <TextBlock HorizontalAlignment="Center"  Text="{Binding Nombre_Cliente}"
+                                       Grid.Column="0" Grid.Row="0"/>
+                            <TextBlock HorizontalAlignment="Center" Margin="225,0,0,0" Text="{Binding Nombre_Platillo}"
+                                       Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock HorizontalAlignment="Center"   Margin="225,0,0,0" Text="{Binding Valoracion}"
+                                       Grid.Column="2" Grid.Row="2"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
-            <Button Content="Generar Reseña" 
-                    Click="btnGenerareseña_ClicK"
-                    Grid.Row="2"
-                    HorizontalAlignment="Right"
-                    Margin="0,28,42,42"
-                    Width="150"
-                    Height="50"
-                    Background="White" 
-                    BorderBrush="LightBlue" 
-                    BorderThickness="2" 
-                    Foreground="Black" 
-                    FontSize="16" />
 
         </Grid>
     </Grid>

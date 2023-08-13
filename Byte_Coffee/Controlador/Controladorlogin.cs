@@ -19,5 +19,9 @@ namespace Byte_Coffee.Controlador
         {
             return modelologin.Validar(correo, clave);
         }
+        public (int, string) TomarDatosCliente(string correo)
+        {
+            return modelologin.TomarDatosCliente(correo);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Byte_Coffee.Controlador;
+using Byte_Coffee.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +55,10 @@ namespace Byte_Coffee.view
         {
             string correo = txtUser.Text;
             string clave = txtclave.Password;
+            var resultado = controladorlogin.TomarDatosCliente(correo);
             if (controladorlogin.Validar(correo, clave))
             {
+                Sesion.IniciarSesion(resultado.Item1, resultado.Item2);
                 Inicio inicio = new Inicio();
                 inicio.Show();
                 this.Close();

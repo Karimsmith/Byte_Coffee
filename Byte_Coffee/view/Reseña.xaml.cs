@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Byte_Coffee.Controlador;
+using Byte_Coffee.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,17 +21,15 @@ namespace Byte_Coffee.view
     /// </summary>
     public partial class Reseña : Window
     {
+        ControladorValoraciones valoraciones;
         public Reseña()
         {
             InitializeComponent();
+            valoraciones = new ControladorValoraciones();
+            List<Valoraciones> list = valoraciones.valoraciones();
+            listaReseñas.ItemsSource = list;
         }
 
-        private void btnGenerareseña_ClicK(object sender, RoutedEventArgs e)
-        {
-            AgregarReseña agregar = new AgregarReseña();
-            agregar.Show();
-            this.Close();
-        }
 
         private void Btneliminar_Click(object sender, RoutedEventArgs e)
         {
